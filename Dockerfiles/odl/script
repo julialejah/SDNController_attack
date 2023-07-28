@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "iniciando" >> /root/salida.log
+sleep 5
+echo "inicia sflow" >> /root/salida.log
+/sflow-rt/get-app.sh sflow-rt mininet-dashboard
+/sflow-rt/get-app.sh sflow-rt ddos-protect
+/sflow-rt/get-app.sh sflow-rt browse-flows
+nohup /sflow-rt/start.sh &
+sleep 10
+#echo "inicis cicflowmeter" >> /root/salida.log
+#unzip cicflowmeter.zip 
+#cd /cicflowmeter
+#python3 setup.py install
+#sleep 10
+echo "inicia karaf" >> /root/salida.log
+/karaf-0.8.4/bin/start
+sleep 10
+/karaf-0.8.4/bin/client feature:install odl-dlux-core odl-openflowplugin-libraries odl-mdsal-all odl-l2switch-all odl-restconf-all odl-yangtools-common odl-dlux-core features-dluxapps features-dlux odl-bgpcep-bgp-l3vpn odl-bgpcep-bgp-evpn && echo "termina" >> /root/salida.log
+

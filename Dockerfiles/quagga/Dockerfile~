@@ -1,0 +1,20 @@
+# parent image
+FROM ubuntu:20.04
+
+ENV TZ=America/Bogota 
+ENV DEBIAN_FRONTEND=noninteractive  
+
+COPY zebra.conf /etc/quagga/
+COPY bgpd.conf /etc/quagga/
+COPY vtysh.conf /etc/quagga/
+
+RUN apt-get update && \
+    apt-get install -y quagga && \
+    apt-get install -y quagga-doc && \
+    apt-get install -y net-tools && \
+    sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf && \
+    chown quagga.quaggavty /etc/quagga/*.conf && \
+    chmod 640 /etc/quagga/*.conf# && \
+#    /etc/init.d/quagga restart
+
+
