@@ -39,35 +39,35 @@ snlist=[subnet1,subnet2,subnet3,subnet4]
 mac = 1
 for j in range (5):
     name='fc'+str(j)
-    fcnet.append(net.addDocker( name , dimage="cicflows", volumes=[dirhome+"/SDN_attacks/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
+    fcnet.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
     mac = mac + 1
     net.addLink(switches[j],fcnet[j])
     print(str(switches[j])+' link to '+str(fcnet[j]))
 
 for j in range (3):
     name='s1_h'+str(j)
-    subnet1.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/SDN_attacks/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
+    subnet1.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
     mac = mac + 1
     net.addLink( s1, subnet1[j] )#, bw=bw)
     print('s1 link '+str(subnet1[j]))
 
 for j in range (3):
     name='s2_h'+str(j)
-    subnet2.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/SDN_attacks/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
+    subnet2.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
     mac = mac + 1
     net.addLink( s2, subnet2[j] )
     print('s2 link '+str(subnet2[j]))
 
 for j in range (3):
     name='s3_h'+str(j)
-    subnet3.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/SDN_attacks/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
+    subnet3.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
     mac = mac + 1
     net.addLink( s3, subnet3[j] )
     print('s3 link '+str(subnet3[j]))
 
 for j in range (3):
     name='s4_h'+str(j)
-    subnet4.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/SDN_attacks/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
+    subnet4.append(net.addDocker( name , dimage="scapy", volumes=[dirhome+"/pyscripts/attacks:/root:rw"], cpus="0.5",mac = macColonHex(mac)))
     mac = mac + 1
     net.addLink( s4, subnet4[j] )
     print('s4 link '+str(subnet4[j]))
