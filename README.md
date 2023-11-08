@@ -13,11 +13,31 @@ https://learn.microsoft.com/es-es/samples/azure/azure-quickstart-templates/docke
 ## Install on Debian:
 1. Create odl and scapy images from Dockerfiles in SDNController_attack Dockerfiles
 2. Install containernet in Nested  Docker deployment
-...
-docker pull containernet/containernet
-...
-4. Run container containernet from shell (docker run --name containernet -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock containernet/containernet /bin/bash)
-5. Inside the container, install scapy and pandas (pip3 install scapy pandas).
-6. Inside the container, clone SDNController_attack repository
-7. From the host shell, create a new image with the changes (sudo docker commit containernet sdnets)
-8. Run the new image (sudo docker run --name sdnets -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock sdnets /bin/bash)
+```
+sudo docker pull containernet/containernet
+```
+3. Run container containernet from shell
+```
+sudo docker run --name containernet -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock containernet/containernet /bin/bash
+```
+
+4. Inside the container, install scapy and pandas
+```
+pip3 install scapy pandas).
+```
+
+5. Inside the container, clone SDNController_attack repository
+```
+git clone https://github.com/julialejah/SDNController_attack.git
+```
+
+
+6. From the host shell, create a new image with the changes
+```
+sudo docker commit containernet sdnets)
+```
+
+7. Run the new image
+```
+sudo docker run --name sdnets -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock sdnets /bin/bash
+```
