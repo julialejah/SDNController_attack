@@ -17,3 +17,4 @@ https://learn.microsoft.com/es-es/samples/azure/azure-quickstart-templates/docke
 4. Inside the container, install scapy and pandas (pip3 install scapy pandas).
 5. Inside the container, clone SDNController_attack repository
 6. From the host shell, create a new image with the changes (sudo docker commit containernet sdnets)
+7. Run the new image (sudo docker run --name sdnets -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock sdnets /bin/bash)
