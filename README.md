@@ -34,7 +34,7 @@ git clone https://github.com/julialejah/SDNController_attack.git
 
 6. From the host shell, create a new image with the changes
 ```
-sudo docker commit containernet sdnets)
+sudo docker commit containernet sdnets
 ```
 
 7. Run the new image
