@@ -23,7 +23,7 @@ sudo docker run --name containernet -it --rm --privileged --pid='host' -v /var/r
 
 4. Inside the container, install scapy and pandas
 ```
-pip3 install scapy pandas).
+pip3 install scapy pandas
 ```
 
 5. Inside the container, clone SDNController_attack repository
