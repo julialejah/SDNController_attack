@@ -39,5 +39,6 @@ sudo docker commit containernet sdnets
 
 7. Run the new image
 ```
-sudo docker run --name sdnets -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock sdnets /bin/bash
+sudo docker run --name sdnets -it --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  sdnets /bin/bash
 ```
+
