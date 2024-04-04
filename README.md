@@ -41,4 +41,4 @@ sudo docker commit containernet sdnets
 ```
 sudo docker run --name sdnets -it --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  sdnets /bin/bash
 ```
-
+check https://www.howtogeek.com/devops/how-to-handle-timezones-in-docker-containers/ 
