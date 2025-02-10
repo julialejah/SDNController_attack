@@ -14,6 +14,5 @@ sudo docker run -t -d -p 6633:6633 -p 6653:6653 -p 8181:8181 -p 8101:8101 -p 222
 
 ##install containernet as Nested Docker deployment
 docker pull containernet/containernet
-docker run --name containernet -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock containernet/containernet /bin/bash
-
+docker run --name sdnets -t -d -it --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  sdnets /bin/bash
 
